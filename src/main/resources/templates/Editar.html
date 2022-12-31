@@ -1,0 +1,155 @@
+<!DOCTYPE html >
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+    <meta charset="UTF-8">
+    <title>formulario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">CONTROL TAJETAS BANCARIAS </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+<div class="container">
+    <div class="row">
+
+        <h1 class="text-center">EDITAR TARJETAS</h1>
+    </div>
+
+    <br><br><br>
+    <div class="row">
+
+        <div class="col-lg-3">
+            <a th:href="@{/Formulario/ListaRegistro}"class="btn btn-primary btn-sm mb3">Ver Registros</a>
+        </div>
+        <br>
+    </div>
+
+    <br> <br>
+
+<div class="container">
+    <div class="row">
+
+
+        <div>
+            <form  th:object="${registro}"  method="post">
+
+
+                <div class="col-xs-4 col-sm-6">
+                    <div class="form-group label-floating">
+                    <label>Fecha Inicial</label>
+                    <input th:field="*{Fecha_registro}" type="date" name="fecha_registro"  class="form-control" required>
+                    </div>
+
+
+
+                </div>
+
+                <br>
+
+                <div class="col-xs-4 col-sm-6">
+                    <div class="form-group label-floating">
+                        <label>Fecha Final</label>
+                        <input th:field="*{Fecha_final}" type="date" name="fecha_registro"  class="form-control" required>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="col-xs-4 col-sm-6">
+                    <div class="form-group label-floating">
+                        <label class="control-label">Tipo de cuenta</label>
+                <select th:field="*{cuentas}"id="cuentas" class="form-select" aria-label="Default select example">
+
+                    <option  th:each="Cuentas : ${cuentas}"
+                             th:value="${Cuentas.id}"
+                             th:text="${Cuentas.Tipo_Cuenta}"></option>
+                </select>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="col-xs-4 col-sm-6">
+                    <div class="form-group label-floating">
+                        <label class="control-label">Tipo de estado</label>
+                        <select th:field="*{estados}"id="estados" class="form-select" aria-label="Default select example">
+
+                            <option  th:each="Estados : ${estados}"
+                                     th:value="${Estados.id}"
+                                     th:text="${Estados.Tipo_estado}"></option>
+                        </select>
+                    </div>
+                </div>
+
+
+
+                <br>
+
+
+                <div class="form-floating">
+                    <p>Observaciones</p>
+                    <label class="control-label"></label>
+                    <textarea th:field="*{Observaciones}" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+
+                </div>
+
+                <br>
+
+                <div class="box-footer">
+                    <button class="btn btn-success">Guardar</button>
+
+                </div>
+
+                <div class="box-footer">
+
+
+
+
+                </div>
+
+
+
+                <br><br><br><br><br>
+
+
+
+            </form>
+
+        </div>
+
+        <br>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+</body>
+</html>
